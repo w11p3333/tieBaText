@@ -35,7 +35,7 @@ class Tool:
 #百度贴吧爬虫类
 class BDTB:
  
-    #初始化，传入基地址，是否只看楼主的参数
+    #初始化，传地址，是否只看楼主的参数，楼层信息
     def __init__(self,baseUrl,seeLZ,floorTag):
         #base链接地址
         self.baseURL = baseUrl
@@ -138,11 +138,11 @@ class BDTB:
         finally:
             print "写入任务完成"
  
- #raw_input("是否只获取楼主发言，是输入1，否输入0\n")   raw_input("是否写入楼层信息，是输入1，否输入0\n") 'http://tieba.baidu.com/p/' + str(raw_input(u'http://tieba.baidu.com/p/'))
+ #raw_input("是否只获取楼主发言，是输入1，否输入0\n")   raw_input("是否写入楼层信息，是输入1，否输入0\n") 
  
 #print u"请输入帖子代号"
-baseURL = 'http://tieba.baidu.com/p/3138733512?see_lz=1&pn=1'
-seeLZ = 1
-floorTag = 1
+baseURL = 'http://tieba.baidu.com/p/' + str(raw_input(u'http://tieba.baidu.com/p/'))
+seeLZ = raw_input("是否只获取楼主发言，是输入1，否输入0\n")
+floorTag = raw_input("是否写入楼层信息，是输入1，否输入0\n")
 bdtb = BDTB(baseURL,seeLZ,floorTag)
 bdtb.start()
